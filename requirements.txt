@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+streamlit
+openai
+requests
+langchain
+faiss-cpu
+tiktoken
+beautifulsoup4
+whisper
+transformers
+torch
+pyttsx3
