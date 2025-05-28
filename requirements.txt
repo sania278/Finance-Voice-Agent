@@ -11,3 +11,12 @@ whisper
 transformers
 torch
 pyttsx3
+yfinance
+beautifulsoup4
+lxml
+sentence-transformers
+faiss-cpu
+transformers
+openai-whisper
+pydub
+python-multipart
