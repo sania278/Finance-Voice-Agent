@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🎙️ Finance Voice Agent
 
 A voice-enabled financial assistant that transcribes spoken queries, retrieves relevant market data using RAG (retrieval-augmented generation), summarizes with an LLM, and replies using speech synthesis.
