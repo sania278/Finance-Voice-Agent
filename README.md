@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎙️ Finance Voice Agent
 
 A voice-enabled financial assistant that transcribes spoken queries, retrieves relevant market data using RAG (retrieval-augmented generation), summarizes with an LLM, and replies using speech synthesis.
@@ -43,7 +44,7 @@ finance-voice-agent/
 
 1. Clone and Setup Environment
 ```bash
-git clone https://github.com/sania278/finance-voice-agent.git
+git clone https://github.com/sania278/Finance-Voice-Agent.git
 cd finance-voice-agent
 python -m venv venv
 venv\Scripts\activate   # On Windows
@@ -89,3 +90,6 @@ Intermediate outputs
 
 Voice-to-text and TTS traces
 
+=======
+# Finance-Voice-Agent
+>>>>>>> 6bb94f6cdeb8d1400fbb73f2492b629ee49b62cc
