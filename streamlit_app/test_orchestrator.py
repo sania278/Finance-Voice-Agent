@@ -1,30 +1,36 @@
+import streamlit as st
 import requests
+import base64
 
-# Endpoint for orchestrator
-url = "http://127.0.0.1:8005/talk/"
+st.title("Finance Voice Assistant")
+st.markdown("Upload your voice query about a stock or company and get a summarized spoken response.")
 
-# Path to your audio file (must be .mp3)
-file_path = "C:\\Users\\Sanaiyah\\Downloads\\souncheck.m4a"  # replace with your own file
+uploaded_file = st.file_uploader("Upload an audio file (.mp3, .m4a, .wav)", type=["mp3", "m4a", "wav"])
 
-# Upload the voice input
-with open(file_path, "rb") as f:
-    files = {"file": f}
-    response = requests.post(url, files=files)
+if uploaded_file is not None:
+    st.success("Success! Here's your result:")
 
-# Check response
-if response.status_code == 200:
-    result = response.json()
-    print("🎤 Transcription:", result.get("query", "❌ query missing"))
-    print("🧠 Summary:", result.get("summary", "❌ summary missing"))
+    files = {'file': uploaded_file}
 
-    print("🪵 Full Response:", result)
+    # Step 1: Send to orchestrator (talk API)
+    response = requests.post("http://127.0.0.1:8005/talk/", files=files)
 
+    if response.status_code == 200:
+        result = response.json()
+        transcription = result.get("query", "Not found")
+        summary = result.get("summary", "Not found")
+        audio_base64 = result.get("spoken_response", "")
 
-    with open("final_response.mp3", "wb") as audio_file:
-        audio_file.write(response.content)
-    print("🔊 Voice response saved to final_response.mp3")
-else:
-    print("❌ Error:")
-    print("Status Code:", response.status_code)
-    print("Response Text:", response.text)
+        st.subheader("📝 Transcribed Query")
+        st.write(transcription)
 
+        st.subheader("📊 Financial Summary")
+        st.write(summary)
+
+        st.subheader("🔊 Voice Response")
+        if audio_base64:
+            st.audio(base64.b64decode(audio_base64), format="audio/mp3")
+        else:
+            st.warning("Voice response not available.")
+    else:
+        st.error("Failed to connect to backend API.")

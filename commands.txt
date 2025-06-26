@@ -1,0 +1,11 @@
+
+transcription_agent → uvicorn agents.transcription_agent:app --reload --port 8004
+
+retriever_agent → uvicorn agents.retriever_agent:app --reload --port 8002
+
+summarizer_agent → uvicorn agents.summarizer_agent:app --reload --port 8003
+
+orchestrator.main → uvicorn orchestrator.main:app --reload --port 8001
+
+streamlit_app/app.py → streamlit run streamlit_app/app.py
+
