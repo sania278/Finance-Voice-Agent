@@ -90,6 +90,3 @@ Intermediate outputs
 
 Voice-to-text and TTS traces
 
-=======
-# Finance-Voice-Agent
->>>>>>> 6bb94f6cdeb8d1400fbb73f2492b629ee49b62cc
